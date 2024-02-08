@@ -6,4 +6,38 @@
     margin-top: 25px;
 }
 
+.btn-primary-custom {
+    background-color: #1E3B28;
+}
+
+.btn-primary-custom:hover {
+    background-color: #729852;
+}
+
+img {
+    height: 426px;
+}
+
+/* Styles for the about page */
+#about {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container-custom {
+    display: flex;
+    flex-direction: column;
+}
+
+.sub-container-custom {
+    background-color: #E7F0E6;
+    margin: 10px 30px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.sub-container-custom > h3 {
+    color: #1E3B28;
+}
   
