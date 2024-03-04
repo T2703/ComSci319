@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+    line-height: 1.5;
+}
+
+li {
+    text-decoration: none;
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+#menu-banner {
+    background: url(./images/menu-banner-image.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 460px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.menu-banner-text ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-banner-text ul li span {
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.menu-banner-text h3, .menu-banner-text a, .menu-banner-text span {
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
