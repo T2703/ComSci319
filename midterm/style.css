@@ -13,7 +13,7 @@ a {
 }
 
 #menu-banner {
-    background: url(./menu-banner-image.jpg);
+    background: url(./images/menu-banner-image.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 460px;
