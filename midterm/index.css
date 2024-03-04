@@ -1,0 +1,15 @@
+.home-container {
+    background-color: #e2e5e9; 
+    border-radius: 8px; 
+    padding: 20px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    max-width: 600px;
+    margin: 100px auto; 
+}
+  
+.home-container p {
+    margin: 10px 0; /* Add margin between paragraphs */
+    color: #333; /* Text color */
+    font-size: 16px; /* Font size */
+    line-height: 1.6; /* Line height for better readability */
+}
