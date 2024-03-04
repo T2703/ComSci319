@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "name": "Classic Cappuccino",
+        "image": "classic_cappuccino.jpg",
+        "description": "A timeless coffeehouse staple, our cappuccino combines expertly pulled espresso with velvety steamed milk and a luxurious layer of milk foam.",
+        "price": "3.50"
+    },
+    {
+        "id": 2,
+        "name": "Vanilla Bean Latte",
+        "image": "vanilla_bean_latte.jpg",
+        "description": "Indulge in the sweet symphony of our Vanilla Bean Latte, where premium espresso meets steamed milk infused with real vanilla bean paste.",
+        "price": "4.00"
+    },
+    {
+        "id": 3,
+        "name": "Hazelnut Mocha",
+        "image": "hazelnut_mocha.jpg",
+        "description": "A decadent treat for chocolate and nut enthusiasts, our Hazelnut Mocha blends rich, dark chocolate sauce with nutty hazelnut syrup.",
+        "price": "4.50"
+    },
+    {
+        "id": 4,
+        "name": "Caramel Macchiato",
+        "image": "caramel_macchiato.jpg",
+        "description": "Experience the delightful layers of our Caramel Macchiato, featuring velvety steamed milk, a shot of bold espresso, and a generous drizzle of gooey caramel sauce.",
+        "price": "4.00"
+    },
+    {
+        "id": 5,
+        "name": "Iced Coconut Matcha Latte",
+        "image": "iced_coconut_matcha_latte.jpg",
+        "description": "Premium, ceremonial-grade matcha is whisked with coconut milk and poured over ice, offering a creamy, tropical variation that's both energizing and refreshing.",
+        "price": "4.50"
+    },
+    {
+        "id": 6,
+        "name": "Cold Brew Coffee",
+        "image": "cold_brew_coffee.jpg",
+        "description": "Brewed slowly over 24 hours, this method produces a less acidic and highly caffeinated beverage. Enjoy it black or with a splash of milk.",
+        "price": "3.00"
+    },
+    {
+        "id": 7,
+        "name": "Spiced Chai Latte",
+        "image": "spiced_chai_latte.jpg",
+        "description": "A warm and inviting blend of aromatic spices and rich black tea, our Spiced Chai Latte is steamed with milk for a comforting and flavorful experience.",
+        "price": "3.75"
+    },
+    {
+        "id": 8,
+        "name": "Almond Honey Flat White",
+        "image": "almond_honey_flat_white.jpg",
+        "description": "A smooth and subtle twist on a classic, our Almond Honey Flat White combines velvety steamed almond milk, a double shot of espresso, and a hint of honey for a sweetly balanced cup.",
+        "price": "4.25"
+    }
+]
