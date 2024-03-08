@@ -1,0 +1,161 @@
+* {
+    box-sizing: border-box;
+    line-height: 1.5;
+}
+
+ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+li {
+    text-decoration: none;
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.pathway-gothic{
+    font-family: "Pathway Gothic One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.5rem;
+    font-style: italic;
+}
+
+#homepage-banner {
+    background: url(/myotherimages/home_banner.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-banner-text {
+    max-width: 60%;
+}
+
+.home-banner-text > h1 {
+    font-size: 3rem;
+    font-style: italic;
+}
+
+#gallery {
+    margin-top: 5em;
+}
+
+  
+#menu-banner {
+    background-color: #000000;
+    background: url(/myotherimages/menu-banner-image-2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 460px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+}
+
+.menu-banner-overlay {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #000000;
+    opacity: 0.3;
+    transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+}
+
+.menu-banner-text {
+    z-index: 1;
+}
+
+.menu-banner-text h3 {
+    font-size: 3rem;
+    font-style: italic;
+}
+
+.menu-banner-text ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-banner-text ul li span {
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.menu-banner-text h3, .menu-banner-text a, .menu-banner-text span {
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.home-container {
+    background-color: #e2e5e9; 
+    border-radius: 8px; 
+    padding: 20px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    max-width: 600px;
+    margin: 100px auto; 
+}
+  
+.home-container p {
+    margin: 10px 0;
+    color: #333; 
+    font-size: 16px;
+    line-height: 1.6; 
+}
+
+/* Styles for menu page */
+#menu-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#menu-main h3 {
+    letter-spacing: normal;
+    font-style: italic;
+}
+
+#menu-section {
+    width: 100%;
+}
+
+
+
+
+
+.footer {
+    margin-top: auto;
+}
+  
+.menu-container {
+    background-color: #e2e5e9; 
+    border-radius: 8px; 
+    padding: 20px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    max-width: 600px;
+    margin: 100px auto; 
+}
+  
+.menu-container p {
+    margin: 10px 0;
+    color: #333; 
+    font-size: 16px;
+    line-height: 1.6; 
+}

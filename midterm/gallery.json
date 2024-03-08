@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "image": "images/gallery_1.jpg",
+        "title": "Beatiful Place",
+        "content": "Discover the charm of our beautifully designed coffee haven, where every corner is a blend of comfort and style - tailored for your relaxation and enjoyment.",
+        "alt": "A variety of coffee brewing equipment, including a milk pitcher, a coffee pot, and espresso shots, laid out on a wooden table."
+    },
+    {
+        "id": 2,
+        "image": "images/gallery_2.jpg",
+        "title": "Feel the coffee",
+        "content": "Experience the embrace of rich aromas and the warmth of a freshly brewed cup. Our coffee is more than a drink; it's a moment to savor and enjoy.",
+        "alt": "A diverse group of people engaged in conversation over coffee and pastries at a bustling coffee shop."
+    },
+    {
+        "id": 3,
+        "image": "images/gallery_3.jpg",
+        "title": "Full taste",
+        "content": "Indulge in the full spectrum of flavor with our expertly crafted beverages. Each cup is a masterpiece, a symphony of taste waiting to be discovered.",
+        "alt": "An individual enjoying a croissant and a cold coffee beverage, with a water glass on the side, in a dimly lit café setting."
+    }
+]
