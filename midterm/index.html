@@ -5,23 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.3.3/lux/bootstrap.min.css" integrity="sha512-RI2S7J+KOTIVVh6JxrBRNIxJjIioHORVNow+SSz2OMKsDLG5y/YT6iXEK+R0LlKBo/Uwr1O063yT198V6AZh4w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="index.css"/>
+   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pathway+Gothic+One&family=Shrikhand&display=swap" rel="stylesheet">    
+
+    <link rel="stylesheet" href="styles/style.css"/>
     <title>Homepage</title>
 </head>
 <body>
+  <!-- Navbar Starts -->
   <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">319 Coffee Shop
-        <img src="./images/Logo.png" alt="Logo" style="width:50px;height:50px;">
-      </a>
-  
+      <div class="img-container">
+        <img src="/myotherimages/Logo.png" alt="Logo" style="width:45px;height:45px;" class="ms-3">
+      </div>
+        <a class="navbar-brand pathway-gothic ms-3" href="index.html">Tech Prodigies Coffee Shop</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarColor01">
-        <ul class="navbar-nav me-auto">
+        <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link active" href="#">Home
+            <a class="nav-link active" href="index.html">Home
               <span class="visually-hidden">(current)</span>
             </a>
           </li>
@@ -35,22 +41,42 @@
       </div>
     </div>
   </nav>
+  <!-- Nabvar Ends -->
+
+  <!-- Banner section -->
+  <section id="homepage-banner">
+    <div class="home-banner-text d-flex flex-column align-items-center">
+      <h1 class="text-white">New Coffee Shop Location</h1>
+      <h3 class="text-white">Nestled in the heart of the community, our cozy cafe is your ideal escape to unwind, work, or catch up with friends.</h3>
+      <button type="button" class="btn btn-primary">
+        <a href="#gallery" class="text-white">Learn More</a>
+      </button>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <div class="container">
+      <div class="row index-row">
+        
+      </div>
+    </div>    
+  </section>
+
 
   <div class="home-container">
     <p>Want to know what coffee to pick?</p>
     <p>Browse the menu from our personal catalog.</p>
-    <img src="./images/cap.png" alt="cappuccino" style="width:200px;height:200px; margin-left: auto;">
-    <img src="./images/Beans.png" alt="cappuccino" style="width:200px;height:200px; margin-right: auto;">
+    <img src="/myotherimages/cap.png" alt="cappuccino" style="width:200px;height:200px; margin-left: auto;">
+    <img src="/myotherimages/Beans.png" alt="cappuccino" style="width:200px;height:200px; margin-right: auto;">
     <p>We hope you enjoy your coffee search.</p>
-    <button id="MeetButton" type="button">Meet us!</button>
   </div>
 
   <footer class="footer bg-primary text-white text-center" style="padding: 25px;">
     <div class="container">
-      <p>&copy; 2024 Tristan Nono & Joshua Gutierrez</p>
+      <p class="m-0">&copy; 2024 Tristan Nono & Joshua Gutierrez</p>
     </div>
   </footer>
-  <script src="index.js"></script>
 
+  <script src="index.js"></script>
 </body>
 </html>
