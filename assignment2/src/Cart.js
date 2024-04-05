@@ -1,13 +1,10 @@
 import React from 'react'
 import { FaArrowLeft, FaCreditCard, FaShoppingCart } from 'react-icons/fa'
-import products from './products.json'
 import { UsaStates } from 'usa-states';
 import { useForm } from 'react-hook-form';
 import {useNavigate} from 'react-router-dom';
 
-function Cart() {
-    const cartItems = products;
-    
+function Cart({cart, handlePayment}) {
     const states = new UsaStates();
 
     const {register, handleSubmit, formState: {errors}} = useForm();
@@ -19,12 +16,20 @@ function Cart() {
 
     const handleReturn = () => {
         navigate('/');
-    }
-
-    const onSubmit = data => {
-        console.log(data);
     };
 
+    const calculateTotalPrice = () => {
+        let total = 0;
+        cart.map(({price, quantity}) => {
+            total += price * quantity
+        })
+        return total;
+    };
+
+    const onSubmit = data => {
+        handlePayment(data);
+        navigate('/confirmation');
+    };
 
     return (
     <div>
@@ -47,21 +52,21 @@ function Cart() {
                 <div className="col-4"><strong>Price</strong></div>
             </div>
 
-            {cartItems.map((item) => (
+            {cart.map((item) => (
             <div key={item.id} className="row mb-2">
                 <div className="col-4 d-flex align-items-center">
                 <img src={item.images[0]} alt={item.title} className='cart-image' />
                     <p className='text-start'>{item.title}</p>
                 </div>
-                <div className="col-4">3</div>
-                <div className="col-4">${item.price}</div>
+                <div className="col-4 text-center d-flex justify-content-center align-items-center">{item.quantity}</div>
+                <div className="col-4 text-center d-flex justify-content-center align-items-center">${item.price * item.quantity}</div>
             </div>
             ))}
 
             <div className="row text-center mt-4">
             <div className="col-4"><strong>Total</strong></div>
             <div className="col-4"></div>
-            <div className="col-4"><strong>$500</strong></div>
+            <div className="col-4"><strong>${calculateTotalPrice()}</strong></div>
             </div>
         </div>
 
@@ -76,7 +81,13 @@ function Cart() {
                         {errors.fullName && <p className="text-danger text-start">*{errors.fullName.message}</p>}
                     </div>
                     <div className="col">
-                        <input {...register("email", { required: "Email is required" })} type="email" className="form-control" placeholder="Email" />
+                        <input {...register("email", {
+                            required: "Email is required",
+                            pattern: {
+                                value: /^\S+@\S+\.\S+$/,
+                                message: "Entered value does not match email format"
+                            }})} 
+                            type="email" className="form-control" placeholder="Email" />
                         {errors.email && <p className="text-danger text-start">*{errors.email.message}</p>}
                     </div>
                 </div>
@@ -86,7 +97,15 @@ function Cart() {
                     <div className="col">
                         <div className="input-group">
                             <span className="input-group-text" id="basic-addon1"><FaCreditCard /></span>
-                            <input {...register("creditCard", {required: "Credit card number is required"})} type="text" className="form-control" placeholder="xxxx-xxxx-xxxx-xxxx" aria-label="Credit Card Number" aria-describedby="basic-addon1" />
+                            <input 
+                                {...register("creditCard", {
+                                    required: "Credit card number is required",
+                                    pattern: {
+                                        value: /\b(?:\d{4}[ -]?){3}(?=\d{4}\b)/,
+                                        message: "Invalid credit card number"
+                                    }
+                                })}
+                                type="text" className="form-control" placeholder="xxxx-xxxx-xxxx-xxxx" aria-label="Credit Card Number" aria-describedby="basic-addon1" />
                         </div>
                         {errors.creditCard && <p className="text-danger text-start">*{errors.creditCard.message}</p>}
                     </div>
@@ -119,8 +138,16 @@ function Cart() {
                         {errors.state && <p className="text-danger text-start">* {errors.state.message}</p>}
                     </div>
                     <div className="col">
-                        <input {...register("zip", { required: "Zip is required" })} type="text" className="form-control" placeholder="Zip" />
-                        {errors.zip && <p className="text-danger text-start">*{errors.zip.message}</p>}
+                        <input
+                            {...register("zipCode", {
+                                required: "ZIP Code is required",
+                                pattern: {
+                                    value: /^\d{5}$/,
+                                    message: "Invalid ZIP Code, must be 5 digits"
+                                }
+                            })}
+                            type="text" className="form-control" placeholder="Zip" />
+                        {errors.zipCode && <p className="text-danger text-start">*{errors.zipCode.message}</p>}
                     </div>
                 </div>
 
@@ -152,6 +179,6 @@ function Cart() {
         </div>
     </div>
     )
-}
+};
 
 export default Cart
