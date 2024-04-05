@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+img.cart-image {
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
+}
