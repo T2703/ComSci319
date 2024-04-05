@@ -3,11 +3,16 @@ import products from './products.json';
 import index from './index.css';
 import {useNavigate} from 'react-router-dom';
 
-function Browse({onSearchChange, filteredProducts, cart, addToCart, removeFromCart}) {
+function Browse({onSearchChange, filteredProducts, cart, addToCart, removeFromCart, currentCart}) {
     const navigate = useNavigate();
 
     const handleCheckout = () => {
-        navigate('/cart');
+        if (currentCart.length != 0) {
+            navigate('/cart');
+            return;
+        }
+
+        alert('You have nothing in the cart!')
     };
 
     function howManyofThis(id) {
