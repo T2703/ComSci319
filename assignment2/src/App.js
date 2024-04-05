@@ -57,13 +57,16 @@ function App() {
     setPayment(paymentInfo);
   };
 
+  const clearCart = () => {
+    setCart([]);
+  }
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Browse onSearchChange={handleSearchChange} filteredProducts={filteredProducts} cart={cart} addToCart={handleAddToCart} removeFromCart={handleRemoveFromCart} />} />
+        <Route path="/" element={<Browse onSearchChange={handleSearchChange} filteredProducts={filteredProducts} cart={cart} addToCart={handleAddToCart} removeFromCart={handleRemoveFromCart} currentCart={aggregatedCart} />} />
         <Route path="/cart" element={<Cart cart={aggregatedCart} handlePayment={handlePayment} />} />
-        <Route path="/confirmation" element={<Confirmation />} />
+        <Route path="/confirmation" element={<Confirmation cart={aggregatedCart} payment={payment} clearCart={clearCart} />} />
       </Routes>
       </BrowserRouter>
   )
