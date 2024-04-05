@@ -11,3 +11,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.desc-text {
+  font-size: 12px;
+  bottom: 20px;
+}
+
+.bottom-left {
+  position: absolute;
+  bottom: 20px; /* Add spacing between the bottom */
+  left: 0;
+}
+
+.bottom-right {
+  font-size: 20px; /* Adjust the font size as needed */
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.card-container {
+  padding-bottom: 40px; /* Increase padding to accommodate the .bottom-left section */
+}
