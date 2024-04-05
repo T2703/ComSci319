@@ -33,3 +33,9 @@ code {
 .card-container {
   padding-bottom: 70px; /* Increase padding to accommodate the .bottom-left section */
 }
+
+img.cart-image {
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
+}
