@@ -3,76 +3,43 @@ import products from './products.json';
 import index from './index.css';
 import {useNavigate} from 'react-router-dom';
 
-function Browse() {
-    const [productsCategory, setProductsCategory] = useState(products);
-    const [searchInput, setSearchInput] = useState('');
-    const [cart, setCart] = useState([]);
-    const [cartTotal, setCartTotal] = useState(0);
+function Browse({onSearchChange, filteredProducts, cart, addToCart, removeFromCart}) {
     const navigate = useNavigate();
-
-    const handleChange = (e) => {
-        setSearchInput(e.target.value);
-        const results = products.filter(eachProduct => {
-            if (e.target.value === "") {
-                return true;
-            }
-            return eachProduct.title.toLowerCase().includes(e.target.value.toLowerCase());
-        });
-        setProductsCategory(results);
-    }
-
-    const addToCart = (el) => {
-        setCart([...cart, el]);
-    }
-
-    const removeFromCart = (el) => {
-        let itemFound = false;
-        const updatedCart = cart.filter((cartItem) => {
-            if (cartItem.id === el.id && !itemFound) {
-                itemFound = true;
-                return false;
-            }
-            return true;
-        });
-        if (itemFound) {
-            setCart(updatedCart);
-        }
-    }
 
     const handleCheckout = () => {
         navigate('/cart');
-    }
+    };
 
     function howManyofThis(id) {
         let hmot = cart.filter((cartItem) => cartItem.id === id);
         return hmot.length;
-    }
+    };
 
     return (
         <div className="container">
             <div className="row justify-content-center">
                 <div className="col-lg-8">
                     <div className="d-flex justify-content-between align-items-center my-2">
-                        <input type="search" className="form-control search-input w-50" placeholder="Search" value={searchInput} onChange={handleChange} />
+                        <input type="search" className="form-control search-input w-50" placeholder="Search" onChange={e => onSearchChange(e.target.value)} />
                         <button className="btn btn-primary" onClick={handleCheckout}>Checkout</button>
                     </div>
                     <div className="row">
-                        {productsCategory.map((el) => (
-                            <div key={el.id} className="col-md-6 mb-4 d-flex align-items-stretch">
+                        {filteredProducts.map((product) => (
+                            <div key={product.id} className="col-md-6 mb-4 d-flex align-items-stretch">
                                 <div className="card w-100 card-container">
-                                    <img src={el.images[0]} className="card-img-top" alt={el.title} />
+                                    <img src={product.images[0]} className="card-img-top" alt={product.title} />
                                     <div className="card-body">
-                                        <span className="price">${el.price}</span>
-                                        <h5 className="card-title">{el.title}</h5>
-                                        <p className="desc-text">{el.description}</p>
+                                        <span className="price">${product.price}</span>
+                                        <h5 className="card-title">{product.title}</h5>
+                                        <p className="desc-text">{product.description}</p>
                                         <div className="bottom-left">
                                             <div className="btn-group">
-                                                <button className="btn btn-primary" onClick={() => addToCart(el)}>+</button>
-                                                <button className="btn btn-secondary" onClick={() => removeFromCart(el)}>-</button>
+                                                <button className="btn btn-primary" onClick={() => addToCart(product)}>+</button>
+                                                <button className="btn btn-secondary" onClick={() => removeFromCart(product)}>-</button>
                                             </div>
                                         </div>
                                         <div className="bottom-right">
-                                            <span className="close"></span>{howManyofThis(el.id)}x
+                                            <span className="close"></span>{howManyofThis(product.id)}x
                                         </div>
                                     </div>
                                 </div>
