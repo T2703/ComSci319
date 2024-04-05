@@ -2,13 +2,16 @@ import logo from './logo.svg';
 import Browse from './Browse';
 import './App.css';
 import Cart from './Cart';
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App"> 
-      <Browse />
-      {/* <Cart /> */}
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Browse />} />
+        <Route path="/cart" element={<Cart />} />
+      </Routes>
+      </BrowserRouter>
   );
 }
 
