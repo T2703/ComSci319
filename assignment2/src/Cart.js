@@ -3,6 +3,7 @@ import { FaArrowLeft, FaCreditCard, FaShoppingCart } from 'react-icons/fa'
 import products from './products.json'
 import { UsaStates } from 'usa-states';
 import { useForm } from 'react-hook-form';
+import {useNavigate} from 'react-router-dom';
 
 function Cart() {
     const cartItems = products;
@@ -10,14 +11,19 @@ function Cart() {
     const states = new UsaStates();
 
     const {register, handleSubmit, formState: {errors}} = useForm();
+    const navigate = useNavigate();
 
     const stateOptions = states.states.map(state => (
         <option key={state.abbreviation} value={state.abbreviation}>{state.name}</option>
     ));
 
+    const handleReturn = () => {
+        navigate('/');
+    }
+
     const onSubmit = data => {
         console.log(data);
-    }
+    };
 
 
     return (
@@ -26,7 +32,7 @@ function Cart() {
         <header>
             <nav className='navbar navbar-expand-lg navbar-light bg-light'>
                 <div className="container-fluid">
-                    <button className='btn btn-dark'>
+                    <button className='btn btn-dark' onClick={handleReturn}>
                         <FaArrowLeft /> Return
                     </button>
                 </div>

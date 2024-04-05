@@ -1,12 +1,14 @@
 import React, { useState, useEffect  } from 'react';
 import products from './products.json';
 import index from './index.css';
+import {useNavigate} from 'react-router-dom';
 
 function Browse() {
     const [productsCategory, setProductsCategory] = useState(products);
     const [searchInput, setSearchInput] = useState('');
     const [cart, setCart] = useState([]);
     const [cartTotal, setCartTotal] = useState(0);
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setSearchInput(e.target.value);
@@ -17,7 +19,6 @@ function Browse() {
             return eachProduct.title.toLowerCase().includes(e.target.value.toLowerCase());
         });
         setProductsCategory(results);
-        console.log(productsCategory);
     }
 
     const addToCart = (el) => {
@@ -38,6 +39,10 @@ function Browse() {
         }
     }
 
+    const handleCheckout = () => {
+        navigate('/cart');
+    }
+
     function howManyofThis(id) {
         let hmot = cart.filter((cartItem) => cartItem.id === id);
         return hmot.length;
@@ -49,7 +54,7 @@ function Browse() {
                 <div className="col-lg-8">
                     <div className="d-flex justify-content-between align-items-center my-2">
                         <input type="search" className="form-control search-input w-50" placeholder="Search" value={searchInput} onChange={handleChange} />
-                        <button className="btn btn-primary">Checkout</button>
+                        <button className="btn btn-primary" onClick={handleCheckout}>Checkout</button>
                     </div>
                     <div className="row">
                         {productsCategory.map((el) => (
