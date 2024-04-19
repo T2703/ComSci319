@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 
-
 function Browse() {
    // Test
    const [data, setData] = useState([])
