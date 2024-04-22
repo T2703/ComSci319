@@ -28,6 +28,10 @@ function Browse() {
       navigate('/Checkout');
     }
 
+    const handleAdd = () => {
+      navigate('/Add');
+    }
+
     return (
       <div>
         <div className="container">
@@ -42,6 +46,7 @@ function Browse() {
                 />
               </div>
               <div className="col d-flex justify-content-end align-items-center">
+                <button className="btn btn-primary" onClick={handleAdd}>Add</button>
                 <button className="btn btn-primary" onClick={handleCheckout}>Checkout</button>
               </div>
             </div>
