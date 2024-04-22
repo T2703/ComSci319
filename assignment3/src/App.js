@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import Browse from './Browse';
 import Checkout from './Checkout';
+import Add from './Add';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import './App.css';
 
@@ -9,6 +10,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Browse />} />
+        <Route path="/Add" element={<Add />} />
         <Route path="/Checkout" element={<Checkout />} />
       </Routes>
     </BrowserRouter>
