@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Browse() {
    // Test
-   const [data, setData] = useState([])
+   const [data, setData] = useState([]);
+   
 
    // Testing 
    const fetchData = async (setData) => {
@@ -20,6 +22,12 @@ function Browse() {
       fetchData(setData);
     }, []);
 
+    const navigate = useNavigate();
+
+    const handleCheckout = () => {
+      navigate('/Checkout');
+    }
+
     return (
       <div>
         <div className="container">
@@ -34,7 +42,7 @@ function Browse() {
                 />
               </div>
               <div className="col d-flex justify-content-end align-items-center">
-                <button className="btn btn-primary">Checkout</button>
+                <button className="btn btn-primary" onClick={handleCheckout}>Checkout</button>
               </div>
             </div>
           </div>
