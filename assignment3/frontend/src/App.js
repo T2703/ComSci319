@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import Browse from './Browse';
-import Checkout from './Checkout';
+import Delete from './Delete';
 import Add from './Add';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import './App.css';
@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Browse />} />
         <Route path="/Add" element={<Add />} />
-        <Route path="/Checkout" element={<Checkout />} />
+        <Route path="/Delete" element={<Delete />} />
       </Routes>
     </BrowserRouter>
   );
