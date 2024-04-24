@@ -133,7 +133,7 @@ exports.deleteProduct = async (req, res) => {
             })
         }
 
-        Product.deleteOne({
+        await Product.deleteOne({
             id: Number(req.params.id)
         })
 

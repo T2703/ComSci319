@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 function Browse() {
    const [data, setData] = useState([]);
    const [searchId, setSearchId] = useState("");
+   const navigate = useNavigate();
 
    const fetchData = async () => {
     try {
@@ -28,8 +29,6 @@ function Browse() {
       console.error('ERROR:', error);
     }
   }
-
-  const navigate = useNavigate();
 
   const handleDelete = () => {
       navigate('/Delete');
