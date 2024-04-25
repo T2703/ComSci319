@@ -61,10 +61,6 @@ function Browse() {
                             onChange={handleChange}
                         />
                     </div>
-                    <div className="col d-flex justify-content-end align-items-center">
-                        <button className="btn btn-primary" onClick={handleAdd}>Add</button>
-                        <button className="btn btn-primary" onClick={handleDelete}>Delete</button>
-                    </div>
                 </div>
             </div>
         </div>
@@ -82,6 +78,7 @@ function Browse() {
                             <div className="card-body d-flex flex-column">
                                 <h5 className="card-title">{item.title}</h5>
                                 <p className="card-text">{item.description}</p>
+                                <p className="card-text">${item.price}</p>
                                 <p className="card-text">{item.rating.rate}</p>
                                 <p className="card-text">{item.rating.count}</p>
                             </div>

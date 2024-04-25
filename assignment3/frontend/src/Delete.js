@@ -77,7 +77,7 @@ function Delete() {
                             />
                         <p>Title: {product.title}</p>
                         <p>Description: {product.description}</p>
-                        <p>Price: {product.price}</p>
+                        <p>Price: ${product.price}</p>
                         <p>Category: {product.category}</p>
                         <p>Rating: {product.rating.rate}</p>
                         <p>Count: {product.rating.count}</p>
