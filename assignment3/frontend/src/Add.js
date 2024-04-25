@@ -1,74 +1,60 @@
 import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import {useForm} from 'react-hook-form';
 
 function Add() {
-    const [formData, setFormData] = useState({
-        id: 3,
-        title: '',
-        description: '',
-        price: '',
-        category: '',
-        rating: {
-            rate: '',
-            count: '',
-        },
-        image: ''
-    });
-
+    const {register, handleSubmit, formState: { errors }} = useForm();
     const navigate = useNavigate();
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        console.log(name, value);
-    };
-    
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        console.log(formData);
+    const onSubmit = async (data) => {
         try {
             const response = await fetch('http://localhost:5000/createProduct', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(formData)
+                body: JSON.stringify(data)
             });
-            console.log("Response");
+
             if (response.ok) {
-                console.log("Sucess");
                 alert('Product added successfully!');
                 navigate('/');
             } else {
-                alert('Failed to add product');
+                alert('Failed to add product. Please try again later.');
             }
         } catch (error) {
-            console.error('Error:', error);
+            console.error('Error: ', error);
         }
     };
-
-    const handleTest = () => {
-        console.log("SP");
-    }
 
     return (
         <div className="container mt-4">
             <div className="row justify-content-center">
                 <div className="col-md-6">
                     <h2 className="text-center">Add new product</h2>
-                    <form onSubmit={handleSubmit}>
-                    <div className="mb-3">
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <div className="mb-3">
+                            <label htmlFor="id" className="form-label">Id:</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                id="id"
+                                {...register("id", { required: true })}
+                                placeholder="Enter the id"
+                            />
+                            {errors.title && <p className='text-danger'>This field is required</p>}
+                        </div>
+                        <div className="mb-3">
                             <label htmlFor="title" className="form-label">Title:</label>
                             <input
                                 type="text"
                                 className="form-control"
                                 id="title"
-                                name="title"
-                                value={formData.title}
-                                onChange={handleChange}
+                                {...register("title", { required: true })}
                                 placeholder="Enter the title"
-                                required
                             />
+                            {errors.title && <p className='text-danger'>This field is required</p>}
                         </div>
                         <div className="mb-3">
                             <label htmlFor="description" className="form-label">Description:</label>
@@ -76,25 +62,22 @@ function Add() {
                                 type="text"
                                 className="form-control"
                                 id="description"
-                                name="description"
-                                value={formData.description}
-                                onChange={handleChange}
+                                {...register("description", { required: true })}
                                 placeholder="Enter the description"
-                                required
                             />
+                            {errors.description && <p className='text-danger'>This field is required</p>}
                         </div>
                         <div className="mb-3">
                             <label htmlFor="price" className="form-label">Price:</label>
                             <input
                                 type="number"
+                                step="0.01"
                                 className="form-control"
                                 id="price"
-                                name="price"
-                                value={formData.price}
-                                onChange={handleChange}
+                                {...register("price", { required: true, valueAsNumber: true })}
                                 placeholder="Enter the price"
-                                required
                             />
+                            {errors.price && <p className='text-danger'>This field is required</p>}
                         </div>
                         <div className="mb-3">
                             <label htmlFor="category" className="form-label">Category:</label>
@@ -102,25 +85,22 @@ function Add() {
                                 type="text"
                                 className="form-control"
                                 id="category"
-                                name="category"
-                                value={formData.category}
-                                onChange={handleChange}
+                                {...register("category", { required: true })}
                                 placeholder="Enter the category"
-                                required
                             />
+                            {errors.category && <p className='text-danger'>This field is required</p>}
                         </div>
                         <div className="mb-3">
                             <label htmlFor="rate" className="form-label">Rate:</label>
                             <input
                                 type="number"
+                                step="0.01"
                                 className="form-control"
                                 id="rate"
-                                name="rate"
-                                value={formData.rating.rate}
-                                onChange={handleChange}
+                                {...register("rating.rate", { required: true, valueAsNumber: true })}
                                 placeholder="Enter the rate"
-                                required
                             />
+                            {errors.rating?.rate && <p className='text-danger'>This field is required</p>}
                         </div>
                         <div className="mb-3">
                             <label htmlFor="count" className="form-label">Count:</label>
@@ -128,12 +108,10 @@ function Add() {
                                 type="number"
                                 className="form-control"
                                 id="count"
-                                name="count"
-                                value={formData.rating.count}
-                                onChange={handleChange}
+                                {...register("rating.count", { required: true, valueAsNumber: true })}
                                 placeholder="Enter the count"
-                                required
                             />
+                            {errors.rating?.count && <p className='text-danger'>This field is required</p>}
                         </div>
                         <div className="mb-3">
                             <label htmlFor="image" className="form-label">Image:</label>
@@ -141,12 +119,10 @@ function Add() {
                                 type="text"
                                 className="form-control"
                                 id="image"
-                                name="image"
-                                value={formData.image}
-                                onChange={handleChange}
+                                {...register("image", { required: true })}
                                 placeholder="Enter the image URL"
-                                required
                             />
+                            {errors.image && <p className='text-danger'>This field is required</p>}
                         </div>
                         <button type="submit" className="btn btn-primary">Add</button>
                     </form>
