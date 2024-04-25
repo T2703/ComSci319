@@ -4,10 +4,12 @@ import Delete from './Delete';
 import Add from './Add';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import './App.css';
+import Navbar from './Navbar';
 
 function App() {
   return (
     <BrowserRouter>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Browse />} />
         <Route path="/Add" element={<Add />} />
