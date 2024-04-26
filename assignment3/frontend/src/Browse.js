@@ -79,8 +79,8 @@ function Browse() {
                                 <h5 className="card-title">{item.title}</h5>
                                 <p className="card-text">{item.description}</p>
                                 <p className="card-text">${item.price}</p>
-                                <p className="card-text">{item.rating.rate}</p>
-                                <p className="card-text">{item.rating.count}</p>
+                                <p className="card-text">Rating: {item.rating.rate}</p>
+                                <p className="card-text">Count: {item.rating.count}</p>
                             </div>
                         </div>
                     </div>
