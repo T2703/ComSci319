@@ -6,6 +6,7 @@ function Delete() {
     const navigate = useNavigate();
     const [productId, setProductId] = useState("");
     const [product, setProduct] = useState(null); 
+    const [showModal, setShowModal] = useState(false);
 
     const handleChange = (event) => {
         setProductId(event.target.value);
@@ -39,6 +40,14 @@ function Delete() {
             console.error('ERROR:', error);
         }
     };
+
+    const openModal = () => setShowModal(true);
+    const closeModal = () => setShowModal(false);
+
+    const confirmDelete = () => {
+        handleDelete();
+        closeModal();
+    }
 
     useEffect(() => {
         console.log(product); // Access the updated product state here
@@ -81,10 +90,28 @@ function Delete() {
                         <p>Category: {product.category}</p>
                         <p>Rating: {product.rating.rate}</p>
                         <p>Count: {product.rating.count}</p>
-                        <button className="btn btn-danger" onClick={handleDelete}>Delete Product</button>
+                        <button className="btn btn-danger" onClick={openModal}>Delete Product</button>
                     </div>
                 )}
             </div>
+
+            <div className={`modal ${showModal ? "d-block" : "d-none"}`} tabIndex="-1" role="dialog" style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}>
+                <div className="modal-dialog" role="document">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h5 className="modal-title">Confirm Deletion</h5>
+                        </div>
+                        <div className="modal-body">
+                            <p>Are you sure you want to delete this product?</p>
+                        </div>
+                        <div className="modal-footer">
+                            <button type="button" className="btn btn-danger" onClick={handleDelete}>Yes</button>
+                            <button type="button" className="btn btn-secondary" onClick={closeModal}>No</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     );
 }

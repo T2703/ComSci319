@@ -12,7 +12,6 @@ function Browse() {
         const response = await fetch('http://localhost:5000/products'); 
         const data = await response.json();
         setData(data.products || []); 
-        console.log(data);
     } catch (error) {
         console.error('ERROR:', error);
     } 
@@ -47,7 +46,7 @@ function Browse() {
   const filteredData = data.filter(item => item.id.toString().includes(searchId));
 
   return (
-    <div>
+    <div className="mb-5">
         <div className="container">
             <div className="row">
                 <div className="col">

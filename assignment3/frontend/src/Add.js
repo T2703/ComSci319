@@ -124,7 +124,7 @@ function Add() {
                             />
                             {errors.image && <p className='text-danger'>This field is required</p>}
                         </div>
-                        <button type="submit" className="btn btn-primary">Add</button>
+                        <button type="submit" className="btn btn-primary mb-5">Add</button>
                     </form>
                 </div>
             </div>
