@@ -23,6 +23,7 @@ Assignments:
 - Assignment 1: A catalog of products with HTML, CSS, and Boostrap.
 - Assignment 2: Shopping cart built with React.
 - Assignment 3: MERN Stack Catalog application.
+- Final: MERN Stack social media platform for sharing recipes. Link to that repo: https://github.com/joshuabgutierrez/team29_final
 _________________________
 
 Feel free to take a look to get a feel for how this class is and what the work is like. Also I am not responsible if you get caught for copying make sure to do your own work, you can still learn from this repo and understand how we did stuff but don't just copy. 
